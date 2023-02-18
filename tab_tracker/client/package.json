@@ -18,8 +18,8 @@
     "vue": "^2.7.14",
     "vue-router": "^3.0.1",
     "vuetify": "^2.4.0",
-    "vuex": "^2.5.0",
-    "vuex-router-sync": "^2.1.1"
+    "vuex": "^2.3.0",
+    "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
