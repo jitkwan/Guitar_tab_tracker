@@ -4,7 +4,7 @@ const config = require('../config/config')
 
 function jwtSignUser (user) {
     const ONE_WEEK = 60 * 60 * 24 * 7 // unit in seconds
-    return jwt.sign(user, config.authentication.jwtSecret, {expiresIn: ONE_WEEK}) // argue2,3 are options
+    return jwt.sign(user, config.authentication.jwtSecret, {expiresIn: ONE_WEEK})
 }
 
 module.exports = {
@@ -32,9 +32,9 @@ module.exports = {
                 })
             }
 
-            const isPasswordValid = await user.comparePassword(password) //user.comparePassword(password) return promise obj so use await
-            console.log(password, user.password)
-            console.log(isPasswordValid)
+            const isPasswordValid = password === user.password
+            // console.log(password, user.password)
+            // console.log(isPasswordValid)
             if (!isPasswordValid){
                 return res.status(403).send({
                     error: 'The login infomation was incorrect'
@@ -43,7 +43,7 @@ module.exports = {
             const userJson = user.toJSON()
             res.send({
                 user: userJson,
-                token: jwtSignUser(userJson)// send token and pass in to user json  
+                token: jwtSignUser(userJson)
             })
         } catch (err) {
             res.status(500).send({
