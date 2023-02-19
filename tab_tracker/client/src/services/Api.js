@@ -1,8 +1,11 @@
 import axios from 'axios'
+import store from '@/store/store'
 
 export default () => {
   return axios.create({
-    // fn to return connector which is axios obj
-    baseURL: `http://localhost:8081/`
+    baseURL: `http://localhost:8081/`,
+    headers: {
+      Authorization: `Bearer ${store.state.token}`
+    }
   })
 }

@@ -10,13 +10,13 @@ app.use(morgan("combined"));
 app.use(bodyParser.json());
 app.use(cors());
 
+require('./passport')
 require("./routes")(app); // require route and pass the app (bcause route return func then pass app)
 
 sequelize
-  .sync() // .sync = to connect sequelize
+  .sync({force: false}) // .sync = to connect sequelize
   .then(() => {
     // finished sync and then start server
     app.listen(config.port);
     console.log(`Server started on port ${config.port}`);
   });
-//app.listen(process.env.port || 8081);

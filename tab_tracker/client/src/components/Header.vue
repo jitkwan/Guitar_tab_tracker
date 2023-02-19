@@ -1,23 +1,23 @@
 <template>
-  <v-card
-    color="grey-lighten-4"
-    flat
-    height="200px"
-    rounded="0"
-  >
-  <v-toolbar density="compact" class="cyan" dark>
+  <v-toolbar fixed class="cyan" dark>
     <v-toolbar-title class="mr-4">
-        <span
+      <router-link
         class="home"
-         @click="navigateTo({name: 'root'})" >
+        tag="span"
+        :to="{
+          name: 'songs'
+        }">
         TabTracker
-        </span>
+      </router-link>
     </v-toolbar-title>
 
     <v-toolbar-items>
       <v-btn
-         text dark
-        @click="navigateTo({name: 'songs'})">
+        text
+        dark
+        :to="{
+          name: 'songs'
+        }">
         Browse
       </v-btn>
     </v-toolbar-items>
@@ -25,43 +25,45 @@
     <v-spacer></v-spacer>
 
     <v-toolbar-items>
-    <v-btn
-    v-if="!$store.state.isUserLoggedIn"
-    text dark
-    @click="navigateTo({name: 'login'})">
-        Log in
+      <v-btn
+        v-if="!$store.state.isUserLoggedIn"
+        text
+        dark
+        :to="{
+          name: 'login'
+        }">
+        Login
       </v-btn>
 
-    <v-btn
-    v-if="!$store.state.isUserLoggedIn"
-    text dark
-    @click="navigateTo({name: 'register'})">
+      <v-btn
+        v-if="!$store.state.isUserLoggedIn"
+        text
+        dark
+        :to="{
+          name: 'register'
+        }">
         Sign Up
       </v-btn>
 
       <v-btn
-    v-if="$store.state.isUserLoggedIn"
-    text dark
-    @click="logout">
-        Log out
+        v-if="$store.state.isUserLoggedIn"
+        text
+        dark
+        @click="logout">
+        Log Out
       </v-btn>
-
     </v-toolbar-items>
   </v-toolbar>
-</v-card>
 </template>
 
 <script>
 export default {
   methods: {
-    navigateTo (route) {
-      this.$router.push(route)
-    },
     logout () {
       this.$store.dispatch('setToken', null)
       this.$store.dispatch('setUser', null)
       this.$router.push({
-        name: 'root'
+        name: 'songs'
       })
     }
   }
@@ -69,11 +71,11 @@ export default {
 </script>
 
 <style scoped>
-.home{
+.home {
   cursor: pointer;
 }
-.home:hover{
-  color: black
-}
 
+.home:hover {
+  color: #E9E;
+}
 </style>
