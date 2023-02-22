@@ -1,6 +1,7 @@
 const {Song} = require('../models')
 
 module.exports = {
+// get all songs
   async index (req, res) {
     try {
       let songs = null
@@ -29,6 +30,7 @@ module.exports = {
       })
     }
   },
+//get one song
   async show (req, res) {
     try {
       const song = await Song.findByPk(req.params.songId)
@@ -39,6 +41,7 @@ module.exports = {
       })
     }
   },
+//create song
   async post (req, res) {
     try {
       const song = await Song.create(req.body)
@@ -49,6 +52,7 @@ module.exports = {
       })
     }
   },
+//update song
   async put (req, res) {
     try {
       await Song.update(req.body, {

@@ -96,12 +96,12 @@ export default {
         tab: null
       },
       error: null,
-      required: (value) => !!value || 'Required.'
+      required: (value) => !!value || 'Required.' // use to specific the data need to be fill
     }
   },
   methods: {
     async create () {
-      this.error = null
+      this.error = null // if can create set error back to null
       const areAllFieldsFilledIn = Object
         .keys(this.song)
         .every(key => !!this.song[key])
