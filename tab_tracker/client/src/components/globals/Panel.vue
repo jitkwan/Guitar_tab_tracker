@@ -1,6 +1,6 @@
 <template>
   <div class="white elevation-2">
-    <v-toolbar text dense class="cyan" dark>
+    <v-toolbar text dense color="#C51162" dark>
       <v-toolbar-title>{{title}}</v-toolbar-title>
       <slot name="action" />
     </v-toolbar>

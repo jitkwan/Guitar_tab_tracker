@@ -13,7 +13,7 @@ module.exports = {
     const { error } = schema.validate(req.body);
 
     if (error) {
-      switch (error.details[0].context.key) {
+      switch (error.details[0].context.key) { // can be email or password then check by case
         case 'email':
           res.status(400).send({
             error: 'You must provide a valid email address'

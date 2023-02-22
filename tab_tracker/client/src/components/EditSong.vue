@@ -71,7 +71,7 @@
 
       <v-btn
         dark
-        class="cyan"
+        color="#CE93D8"
         @click="save">
         Save Song
       </v-btn>

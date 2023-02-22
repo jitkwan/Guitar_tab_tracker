@@ -2,7 +2,7 @@
   <panel title="Recently Viewed Songs">
     <v-data-table
       :headers="headers"
-      :pagination.sync="pagination"
+      :options.sync="pagination"
       :items="histories">
       <template v-slot:items="props">
         <td class="text-xs-right">
@@ -34,7 +34,7 @@ export default {
         }
       ],
       pagination: {
-        sortBy: 'createdAt',
+        sortBy: ['createdAt'],
         descending: true
       },
       histories: []

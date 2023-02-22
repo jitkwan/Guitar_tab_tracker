@@ -17,7 +17,7 @@ Vue.config.productionTip = false
 
 Vue.component('panel', Panel)
 
-sync(store, router)
+sync(store, router) // sync store to router
 /* eslint-disable no-new */
 const opts = {}
 new Vue({

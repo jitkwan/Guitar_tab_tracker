@@ -1,5 +1,10 @@
 <template>
-  <v-toolbar fixed class="cyan" dark>
+  <v-card
+    flat
+    height="150px"
+    rounded="0"
+  >
+  <v-toolbar fixed color="#6A1B9A" dark >
     <v-toolbar-title class="mr-4">
       <router-link
         class="home"
@@ -54,6 +59,7 @@
       </v-btn>
     </v-toolbar-items>
   </v-toolbar>
+</v-card>
 </template>
 
 <script>

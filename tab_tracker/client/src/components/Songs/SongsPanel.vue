@@ -5,7 +5,7 @@
       :to="{
         name: 'songs-create'
       }"
-      class="cyan accent-2"
+      color="#CE93D8"
       light
       medium
       absolute
@@ -34,7 +34,7 @@
 
           <v-btn
             dark
-            class="cyan"
+            color="#CE93D8"
             :to="{
               name: 'song',
               params: {

@@ -68,10 +68,10 @@
       <div class="danger-alert" v-if="error">
         {{error}}
       </div>
-
+      <br>
       <v-btn
         dark
-        class="cyan"
+        color="#CE93D8"
         @click="create">
         Create Song
       </v-btn>

@@ -12,7 +12,7 @@ const users = require('./users.json')
 const bookmarks = require('./bookmarks.json')
 const histories = require('./histories.json')
 
-sequelize.sync({force: true})
+sequelize.sync({force: false})
   .then(async function () {
     await Promise.all(
       users.map(user => {

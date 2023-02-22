@@ -2,10 +2,10 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 
-Vue.use(Vuex)
+Vue.use(Vuex) // tell Vue to use Vuex = can access store and all vue compo bcause it's sync to router
 
 export default new Vuex.Store({
-  strict: true,
+  strict: true, // can't modify state unless action or mutation
   plugins: [
     createPersistedState()
   ],

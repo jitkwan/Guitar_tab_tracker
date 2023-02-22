@@ -2,6 +2,8 @@
   <v-layout column>
     <v-flex xs6 offset-xs3>
       <panel title="Login">
+        <form
+          name="tab-tracker-form">
         <v-text-field
           label="Email"
           v-model="email"
@@ -17,10 +19,11 @@
         <br>
         <v-btn
           dark
-          class="cyan"
+          color="#C51162"
           @click="login">
           Login
         </v-btn>
+        </form>
       </panel>
     </v-flex>
   </v-layout>
