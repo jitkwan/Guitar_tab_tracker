@@ -16,7 +16,7 @@ function hashPassword (user, options) {
     })
 }
 
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => { // export func that take sequelize, DataTypes
   const User = sequelize.define('User', {
     email: {
       type: DataTypes.STRING,
