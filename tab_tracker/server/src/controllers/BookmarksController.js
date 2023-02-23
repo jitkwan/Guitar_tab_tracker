@@ -22,15 +22,17 @@ module.exports = {
             model: Song
           }
         ]
-      })
-        .map(bookmark => bookmark.toJSON())
-        .map(bookmark => _.extend(
-          {},
-          bookmark.Song,
-          bookmark
-        ))
+      });
+      
+      const bookmarkObjects = await Promise.all(
+        bookmarks.map(async (bookmark) => {
+          const song = await bookmark.getSong();
+          return Object.assign({}, bookmark.toJSON(), song.toJSON());
+        })
+      );
       res.send(bookmarks)
     } catch (err) {
+      console.log(`1 It has error ${err}`)
       res.status(500).send({
         error: 'an error has occured trying to fetch the bookmark'
       })
@@ -57,6 +59,7 @@ module.exports = {
       })
       res.send(newBookmark)
     } catch (err) {
+      console.log(`2 It has error ${err}`)
       console.log(err)
       res.status(500).send({
         error: 'an error has occured trying to create the bookmark'
@@ -81,6 +84,7 @@ module.exports = {
       await bookmark.destroy()
       res.send(bookmark)
     } catch (err) {
+      console.log(`3 It has error ${err}`)
       res.status(500).send({
         error: 'an error has occured trying to delete the bookmark'
       })

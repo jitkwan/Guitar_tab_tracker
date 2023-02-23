@@ -23,15 +23,20 @@ module.exports = {
         order: [
           ['createdAt', 'DESC']
         ]
-      })
-        .map(history => history.toJSON())
-        .map(history => _.extend(
-          {},
-          history.Song,
-          history
-        ))
-      res.send(_.uniqBy(histories, history => history.SongId))
+      });
+      
+      const historyObjects = await Promise.all(
+        histories.map(async (history) => {
+          const song = await history.getSong();
+          return Object.assign({}, history.toJSON(), song.toJSON());
+        })
+      );
+      
+      res.send(_.uniqBy(historyObjects, history => history.SongId
+        ));
+      
     } catch (err) {
+      console.log(`7 I have error ${err}`)
       res.status(500).send({
         error: 'an error has occured trying to fetch the history'
       })
@@ -47,7 +52,7 @@ module.exports = {
       })
       res.send(history)
     } catch (err) {
-      console.log(err)
+      console.log(`8 I have error ${err}`)
       res.status(500).send({
         error: 'an error has occured trying to create the history object'
       })
