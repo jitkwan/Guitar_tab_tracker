@@ -25,9 +25,7 @@ module.exports = (sequelize, DataTypes) => { // export func that take sequelize,
     password: DataTypes.STRING
   }, {
     hooks: {
-      beforeCreate: hashPassword,
-      beforeUpdate: hashPassword,
-      beforeSave: hashPassword
+      beforeCreate: hashPassword
     }
   })
 

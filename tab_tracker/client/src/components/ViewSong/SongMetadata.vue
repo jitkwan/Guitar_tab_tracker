@@ -25,8 +25,6 @@
           }">
           Edit
         </v-btn>
-        <br>
-        <br>
 
         <v-btn
           v-if="isUserLoggedIn && !bookmark"
@@ -39,7 +37,7 @@
         <v-btn
           v-if="isUserLoggedIn && bookmark"
           dark
-          class="cyan"
+          color="#CE93D8"
           @click="unsetAsBookmark">
           Unset As Bookmark
         </v-btn>
