@@ -1,7 +1,8 @@
 const {Song} = require('../models')
+const { Op } = require('sequelize');
 
 module.exports = {
-// get all songs
+// get all songs and also can search if it has query
   async index (req, res) {
     try {
       let songs = null
@@ -9,15 +10,14 @@ module.exports = {
       if (search) {
         songs = await Song.findAll({
           where: {
-            $or: [
-              'title', 'artist', 'genre', 'album'
-            ].map(key => ({
-              [key]: {
-                $like: `%${search}%`
-              }
-            }))
+            [Op.or]: [
+              { title: { [Op.like]: '%' + search + '%' } },
+              { artist: { [Op.like]: '%' + search + '%' } },
+              { genre: { [Op.like]: '%' + search + '%' } },
+              { album: { [Op.like]: '%' + search + '%' } }
+            ]
           }
-        })
+        });
       } else {
         songs = await Song.findAll({
           limit: 10
@@ -25,6 +25,7 @@ module.exports = {
       }
       res.send(songs)
     } catch (err) {
+      console.log(`it has error here ${err}`)
       res.status(500).send({
         error: 'an error has occured trying to fetch the songs'
       })
