@@ -33,7 +33,7 @@ module.exports = {
       );
       res.send(bookmarks)
     } catch (err) {
-      console.log(`1 It has error ${err}`)
+      // console.log(`1 It has error ${err}`)
       res.status(500).send({
         error: 'an error has occured trying to fetch the bookmark'
       })
@@ -62,7 +62,7 @@ module.exports = {
       })
       res.send(newBookmark)
     } catch (err) {
-      console.log(`2 It has error ${err}`)
+      // console.log(`2 It has error ${err}`)
       console.log(err)
       res.status(500).send({
         error: 'an error has occured trying to create the bookmark'
@@ -87,7 +87,7 @@ module.exports = {
       await bookmark.destroy()
       res.send(bookmark)
     } catch (err) {
-      console.log(`3 It has error ${err}`)
+      // console.log(`3 It has error ${err}`)
       res.status(500).send({
         error: 'an error has occured trying to delete the bookmark'
       })

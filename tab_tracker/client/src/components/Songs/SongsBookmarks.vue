@@ -53,7 +53,7 @@ export default {
         this.bookmarks.push({title: i.Song.title,
           artist: i.Song.artist})
       }
-      console.log('bm >>', this.bookmarks)
+      // console.log('bm >>', this.bookmarks)
     }
   }}
 </script>

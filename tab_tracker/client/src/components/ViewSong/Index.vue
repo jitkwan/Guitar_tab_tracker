@@ -2,21 +2,21 @@
   <div>
     <v-layout>
       <v-flex xs6>
-        <song-metadata :song="song" />
+        <song-metadata :song="song" class="mt-4 mr-2 ml-4 rounded-sm" />
       </v-flex>
 
       <v-flex xs6 class="ml-2">
-        <you-tube :youtubeId="song.youtubeId" />
+        <you-tube :youtubeId="song.youtubeId" class="mt-4 mr-4 ml-2 rounded-sm"/>
       </v-flex>
     </v-layout>
 
     <v-layout class="mt-2">
       <v-flex xs6>
-        <tab :song="song" />
+        <tab :song="song" class="mt-4 mr-2 ml-4 rounded-sm"/>
       </v-flex>
 
       <v-flex xs6 class="ml-2">
-        <lyrics :song="song" />
+        <lyrics :song="song" class="mt-4 mr-2 ml-2 rounded-sm"/>
       </v-flex>
     </v-layout>
   </div>

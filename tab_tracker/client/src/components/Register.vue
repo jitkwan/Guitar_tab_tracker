@@ -1,6 +1,6 @@
 <template>
-  <v-layout column>
-    <v-flex xs6 offset-xs3>
+  <v-layout column class="middle-regis">
+    <v-flex xs6 >
       <panel title="Register">
         <form
           name="tab-tracker-form"
@@ -63,4 +63,8 @@ export default {
 </script>
 
 <style scoped>
+.middle-regis{
+  padding-left: 30%;
+  padding-right: 30%;
+}
 </style>

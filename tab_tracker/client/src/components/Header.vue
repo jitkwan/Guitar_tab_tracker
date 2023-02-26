@@ -1,7 +1,6 @@
 <template>
   <v-card
     flat
-    height="150px"
     rounded="0"
   >
   <v-toolbar fixed color="#6A1B9A" dark >

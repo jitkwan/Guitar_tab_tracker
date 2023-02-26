@@ -127,6 +127,7 @@ export default {
   async mounted () {
     try {
       const songId = this.$store.state.route.params.songId
+      console.log(this.$store.state)
       this.song = (await SongsService.show(songId)).data
     } catch (err) {
       console.log(err)

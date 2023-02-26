@@ -10,7 +10,7 @@ module.exports = {
     })
 
 
-    const { error } = schema.validate(req.body);
+    const { error } = schema.validate(req.body); // send request body to compare
 
     if (error) {
       switch (error.details[0].context.key) { // can be email or password then check by case

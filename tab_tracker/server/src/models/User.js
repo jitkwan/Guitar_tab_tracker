@@ -13,6 +13,7 @@ function hashPassword (user, options) {
     .then(salt => bcrypt.hashAsync(user.password, salt, null))
     .then(hash => {
       user.setDataValue('password', hash)
+      // console.log(`This is hash ${hash}`)
     })
 }
 
@@ -20,7 +21,7 @@ module.exports = (sequelize, DataTypes) => { // export func that take sequelize,
   const User = sequelize.define('User', {
     email: {
       type: DataTypes.STRING,
-      unique: true
+      unique: true // to prevent duplicate email
     },
     password: DataTypes.STRING
   }, {

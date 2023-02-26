@@ -1,6 +1,6 @@
 <template>
   <v-layout column>
-    <v-flex xs6 offset-xs3>
+    <v-flex xs6 class="middle-login ">
       <panel title="Login">
         <form
           name="tab-tracker-form">
@@ -61,4 +61,8 @@ export default {
 </script>
 
 <style scoped>
+.middle-login{
+  padding-left: 30%;
+  padding-right: 30%;
+}
 </style>
