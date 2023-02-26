@@ -5,6 +5,7 @@ const {
 const _ = require('lodash')
 
 module.exports = {
+  //get book mark
   async index (req, res) {
     try {
       const userId = req.user.id
@@ -38,6 +39,8 @@ module.exports = {
       })
     }
   },
+
+  // create bookmark 
   async post (req, res) {
     try {
       const userId = req.user.id

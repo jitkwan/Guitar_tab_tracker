@@ -25,8 +25,8 @@ fs // read file in model folder
     db[model.name] = model // equal to db.User = model
   })
 
-  Object.keys(db).forEach(function (modelName) {
-    if ('associate' in db[modelName]) {
+  Object.keys(db).forEach(function (modelName) { //create assocition between model and check it through function it has
+    if ('associate' in db[modelName]) {// check does it has an associate method?
       db[modelName].associate(db)
     }
   })

@@ -14,7 +14,7 @@ const histories = require('./histories.json')
 
 sequelize.sync({force: true})
   .then(async function () {
-    await Promise.all(
+    await Promise.all(   // Promise  = Make sure that all model that have to use insert all ready before doing other stuff
       users.map(user => {
         User.create(user)
       })

@@ -8,7 +8,7 @@ function jwtSignUser (user) {
     expiresIn: ONE_WEEK
   })
 }
-
+//register
 module.exports = {
   async register (req, res) {
     try {
@@ -24,6 +24,8 @@ module.exports = {
       })
     }
   },
+
+  //login
   async login (req, res) {
     try {
       const {email, password} = req.body
