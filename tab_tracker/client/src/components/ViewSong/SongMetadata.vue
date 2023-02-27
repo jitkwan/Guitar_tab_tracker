@@ -25,7 +25,8 @@
           }">
           Edit
         </v-btn>
-
+        <br>
+        <br>
         <v-btn
           v-if="isUserLoggedIn && !bookmark"
           dark
@@ -33,7 +34,6 @@
           @click="setAsBookmark">
           Set As Bookmark
         </v-btn>
-
         <v-btn
           v-if="isUserLoggedIn && bookmark"
           dark

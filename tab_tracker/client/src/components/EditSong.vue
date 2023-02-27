@@ -68,7 +68,7 @@
       <div class="danger-alert" v-if="error">
         {{error}}
       </div>
-
+      <br>
       <v-btn
         dark
         color="#CE93D8"
